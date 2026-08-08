@@ -1,6 +1,6 @@
 import { InstagramLogo, LinkedinLogo, XLogo, EnvelopeSimple } from '@phosphor-icons/react/dist/ssr'
 import { NAV_LINKS, REGISTRATION_URL } from '@/lib/site'
-import { Wordmark } from '@/components/wordmark'
+import { Logo } from '@/components/logo'
 import { Coord } from '@/components/decor'
 
 const socials = [
@@ -15,7 +15,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Wordmark />
+            <Logo variant="onDark" className="h-24 w-24" />
             <p className="mt-5 max-w-sm text-pretty leading-relaxed text-muted-foreground">
               Um capítulo local do NASA Space Apps Challenge. Ciência, espaço,
               tecnologia e comunidade — em Calumbo, Angola.

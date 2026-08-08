@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { List, X } from '@phosphor-icons/react'
 import { NAV_LINKS, REGISTRATION_URL } from '@/lib/site'
-import { Wordmark } from '@/components/wordmark'
+import { Logo } from '@/components/logo'
 import { CtaExternal } from '@/components/cta'
 import { cn } from '@/lib/utils'
 
@@ -39,8 +39,20 @@ export function Navbar() {
         aria-label="Navegação principal"
         className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8"
       >
-        <a href="#top" className="rounded-md outline-none focus-visible:ring-2 focus-visible:ring-blue-yonder">
-          <Wordmark size="sm" />
+        <a
+          href="#top"
+          aria-label="NASA Space Apps Calumbo — início"
+          className="flex items-center gap-3 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-blue-yonder"
+        >
+          <Logo variant="onDark" className="h-11 w-11" priority />
+          <span className="hidden flex-col leading-none sm:flex">
+            <span className="font-display text-[0.6rem] font-medium uppercase tracking-[0.32em] text-blue-yonder">
+              NASA Space Apps
+            </span>
+            <span className="font-display text-base font-black uppercase tracking-tight text-foreground">
+              Calumbo
+            </span>
+          </span>
         </a>
 
         <ul className="hidden items-center gap-7 lg:flex">

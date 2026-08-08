@@ -1,6 +1,7 @@
 import { REGISTRATION_URL } from '@/lib/site'
 import { CtaExternal, CtaAnchor } from '@/components/cta'
 import { GridField, OrbitalSystem, Coord } from '@/components/decor'
+import { Logo } from '@/components/logo'
 
 export function Hero() {
   return (
@@ -18,6 +19,8 @@ export function Hero() {
 
       <div className="relative mx-auto grid min-h-[100svh] max-w-7xl grid-cols-1 items-center px-5 pb-20 pt-28 sm:px-8 lg:grid-cols-12 lg:pt-24">
         <div className="lg:col-span-7">
+          <Logo variant="onDark" className="mb-8 h-20 w-20 lg:hidden" priority />
+
           <div className="mb-8 flex items-center gap-3">
             <span className="h-px w-10 bg-neon-yellow" />
             <Coord>Lat 09°S · Long 13°E · Angola</Coord>
