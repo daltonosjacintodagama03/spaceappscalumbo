@@ -1,0 +1,175 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+/*
+  NASA Space Apps Calumbo — brand design system
+  Official palette:
+    Electric Blue #0042A6 · Neon Blue #0960E1 · Blue Yonder #2E96F5
+    Deep Blue #07173F · Neon Yellow #EAFE07 · Rocket Red #E43700
+    Martian Red #8E1100 · White #FFFFFF
+*/
+
+@theme inline {
+  /* Brand colors */
+  --color-electric-blue: #0042a6;
+  --color-neon-blue: #0960e1;
+  --color-blue-yonder: #2e96f5;
+  --color-deep-blue: #07173f;
+  --color-neon-yellow: #eafe07;
+  --color-rocket-red: #e43700;
+  --color-martian-red: #8e1100;
+
+  /* Semantic tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Typography */
+  --font-sans: var(--font-overpass), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fira-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-fira-code), ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  color-scheme: dark;
+
+  --background: #07173f;
+  --foreground: #ffffff;
+
+  --card: #0a1e52;
+  --card-foreground: #ffffff;
+
+  --popover: #0a1e52;
+  --popover-foreground: #ffffff;
+
+  --primary: #0960e1;
+  --primary-foreground: #ffffff;
+
+  --secondary: #0042a6;
+  --secondary-foreground: #ffffff;
+
+  --muted: #0e2560;
+  --muted-foreground: #9db8e6;
+
+  --accent: #eafe07;
+  --accent-foreground: #07173f;
+
+  --destructive: #e43700;
+
+  --border: rgba(46, 150, 245, 0.18);
+  --input: rgba(46, 150, 245, 0.24);
+  --ring: #2e96f5;
+
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply bg-background;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  ::selection {
+    background: var(--color-neon-yellow);
+    color: var(--color-deep-blue);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Reveal-on-scroll (progressive enhancement) */
+@utility reveal-init {
+  opacity: 0;
+  transform: translateY(28px);
+}
+.reveal-visible {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-init {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Orbital rotation for decorative systems */
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-orbit-slow {
+  animation: orbit-spin 90s linear infinite;
+}
+.animate-orbit-med {
+  animation: orbit-spin 60s linear infinite reverse;
+}
+.animate-orbit-fast {
+  animation: orbit-spin 40s linear infinite;
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee-x 32s linear infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
